@@ -5,7 +5,7 @@ import './ChartStyle.css'
 const sty={
     position: "relative",
     height:"30vh",
-    width: "60vw",
+    width: "90vw",
     align: "center",
 
 }
@@ -39,6 +39,7 @@ export default function Test(props) {
             const myc = document.getElementById("myChart").getContext('2d');
             const myChart = new Chart(myc, {
                 type: 'line',
+                width: 120,
                 options:{
                     responsive: true,
                     maintainAspectRatio: false,
