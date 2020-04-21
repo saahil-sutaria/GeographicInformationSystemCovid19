@@ -5,7 +5,7 @@ import './ChartStyle.css'
 const sty={
     position: "relative",
     height:"30vh",
-    width: "90vw",
+    width: "75vw",
     align: "center",
 
 }
