@@ -8,6 +8,7 @@ import './ChartStyle.css'
 
     return(
         <div  id="tab">
+
             <Table border="1" id="tab2">
                 <Thead>
                     <Tr>

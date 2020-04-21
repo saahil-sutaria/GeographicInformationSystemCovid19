@@ -18,6 +18,8 @@ class Country extends Component{
             pressed:false,
             recorded: "...Loading",
             pass:"",
+            totalc1m: 0,
+            totald1m: 0,
             charts:"...Loading",
         }
         this.inputRef = React.createRef()
@@ -26,11 +28,13 @@ class Country extends Component{
 
     update=()=>{
 
-        console.log(document.getElementById("search").value)
-        if (document.getElementById("search")===null){
+
+        if (document.getElementById("search").value===""){
+            console.log("*********")
             this.setState({value: "Enter in search bar "})
         }
         else{
+
             fetch(`https://coronavirus-monitor-v2.p.rapidapi.com/coronavirus/latest_stat_by_country_name.php?country=${document.getElementById("search").value}`, {
                 "method": "GET",
                 "headers": {
@@ -50,6 +54,8 @@ class Country extends Component{
                         recover: val.total_recovered,
                         death: val.total_deaths,
                         recorded: val.record_date,
+                        totalc1m:val.total_cases_per1m,
+                        totald1m:val.deaths_per1m,
                         value:""
                         })
                 } )
@@ -70,7 +76,7 @@ class Country extends Component{
 
 
     render(){
-        const{ chart, pass ,value, total, recover, death,pressed,recorded } =  this.state;
+        const{ totalc1m, totald1m, chart, pass ,value, total, recover, death,pressed,recorded } =  this.state;
 
         if (pressed===false) {
             return (
@@ -94,7 +100,10 @@ class Country extends Component{
                     <h1 id="displayleft">Cases in {pass}</h1>
                     <Tab total={total} recover={recover} death={death}/>
                     <p>Statistics Take at :  {recorded} (PDT)</p>
+
+
                     <Chart country={pass}/>
+
 
                 </div>
             )

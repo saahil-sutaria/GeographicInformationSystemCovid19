@@ -10,8 +10,12 @@
   background-color: cadetblue;
 
 }
-.search{
+#search{
   border: 2px solid black;
+  box-shadow: 8px 8px 5px black;
+  height: 20px;
+  margin-right: 30px;
+
 }
 .button.is-info{
   background-color: #344e4f;
@@ -21,7 +25,8 @@
 
 }
 .button {
-
+  width: 100px;
+  box-shadow: 8px 8px 5px black;
   background-color: #fff;
   border-color: #dbdbdb;
   border-width:4px;

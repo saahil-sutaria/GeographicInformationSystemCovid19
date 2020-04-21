@@ -16,9 +16,9 @@ class App extends Component {
     render(){
         return(
                 <div className="App" >
-                    <h1 id="displayleft">Corona Case Tracker</h1>
+
                     <br />
-                    <h1 id="displayleft" >Global Cases</h1>
+                    <h1 id="displayleft" >Global Corona Cases</h1>
                     <Total />
                     <Country/>
                 </div>
