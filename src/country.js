@@ -18,6 +18,7 @@ class Country extends Component{
             pressed:false,
             recorded: "...Loading",
             pass:"",
+            charts:"...Loading",
         }
         this.inputRef = React.createRef()
         this.handleChange = this.handleChange.bind(this);
@@ -69,7 +70,7 @@ class Country extends Component{
 
 
     render(){
-        const{  pass ,value, total, recover, death,pressed,recorded } =  this.state;
+        const{ chart, pass ,value, total, recover, death,pressed,recorded } =  this.state;
 
         if (pressed===false) {
             return (
@@ -78,6 +79,7 @@ class Country extends Component{
                     <input type="text"  id="search" ref={this.inputRef} size="40" placeholder="Search"/>
                     <button className="button is-info" type="submit" size="40" onClick={() => this.update()}>Search</button>
                     <p>{value}</p>
+
 
 
                 </div>
@@ -89,7 +91,7 @@ class Country extends Component{
 
                     <input type="text"  id="search"  ref={this.inputRef} size="40" placeholder="Search"/>
                     <button className="button is-info" size="40" type="submit" onClick={() => this.update()}>Search</button>
-                    <h1 ClassName="displayleft">Cases in {pass}</h1>
+                    <h1 id="displayleft">Cases in {pass}</h1>
                     <Tab total={total} recover={recover} death={death}/>
                     <p>Statistics Take at :  {recorded} (PDT)</p>
                     <Chart country={pass}/>

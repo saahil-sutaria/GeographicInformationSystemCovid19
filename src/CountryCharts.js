@@ -2,6 +2,13 @@ import React from "react";
 import Chart from "chart.js";
 import './ChartStyle.css'
 
+const sty={
+    position: "relative",
+    height:"30vh",
+    width: "60vw",
+    align: "center",
+
+}
 export default function Test(props) {
     let cases=[];
     let dates=[];
@@ -32,6 +39,11 @@ export default function Test(props) {
             const myc = document.getElementById("myChart").getContext('2d');
             const myChart = new Chart(myc, {
                 type: 'line',
+                options:{
+                    responsive: true,
+                    maintainAspectRatio: false,
+
+                },
                 data: {
                     labels: dates,
                     datasets: [{
@@ -48,7 +60,7 @@ export default function Test(props) {
             console.log(err);
         });
     return(
-        <div id='map'>
+        <div id='main' style={sty}>
             <canvas id="myChart" > </canvas>
 
         </div>
