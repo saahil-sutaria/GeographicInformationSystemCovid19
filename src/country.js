@@ -83,8 +83,8 @@ class Country extends Component{
         if (pressed===false) {
             return (
                 <div>
-                    <input type="text"  id="search" ref={this.inputRef} size="30" placeholder="Country, City list coming-soon"/>
-                    <button className="button is-info" type="submit" size="40" onClick={() => this.update()}>Search</button>
+                    <input type="text"  id="search" ref={this.inputRef} size="40" placeholder="Country, City list coming-soon"/>
+                    <button className="button is-info " type="submit" size="40" onClick={() => this.update()}>Search</button>
                     <p>{value}</p>
 
                 </div>
@@ -97,7 +97,8 @@ class Country extends Component{
                     <button className="button is-info" size="30" type="submit" onClick={() => this.update()}>Search</button>
                     <br/>
                     <br/>
-                    <h1 id="displayleft" className="text-white bg-dark card-header ">Cases in {pass}</h1>
+                    <h1 id="displayleft" className="text-danger bg-white card-header">Cases in {pass}</h1>
+                    <br/>
                     <br/>
                     <Tab total={total} recover={recover} death={death}/>
                     <br/>
@@ -123,7 +124,8 @@ class Country extends Component{
                                     <p>Live data is fetched from COVID-19 monitor API v2.</p>
                                     <p>Chart.js for graphical representation of response data. </p>
                                     <p>Bootstrap to style components.</p>
-                                    <p>Coming up - Interactive google Maps, graphs and more Styling...</p>
+                                    <p>Coming up - Interactive google Maps, graphs and more Styling ...</p>
+                                    <p>Input Validation pending .....</p>
 
 
                                 </div>

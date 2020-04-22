@@ -10,18 +10,18 @@ import './ChartStyle.css'
         <div  id="tab">
 
             <Table border="1" id="tab2" className="table  thead-dark">
-                <Thead>
+                <Thead className="thead-dark">
                     <Tr>
-                        <Th>Total Cases</Th>
-                        <Th>Recovered</Th>
-                        <Th>Deaths</Th>
+                        <Th scope="col">Total Cases</Th>
+                        <Th scope="col">Recovered</Th>
+                        <Th scope="col">Deaths</Th>
                     </Tr>
                 </Thead>
                 <Tbody>
                     <Tr>
-                        <Td>{props.total}</Td>
-                        <Td>{props.recover}</Td>
-                        <Td>{props.death}</Td>
+                        <Td scope="row">{props.total}</Td>
+                        <Td scope="row">{props.recover}</Td>
+                        <Td scope="row">{props.death}</Td>
                     </Tr>
 
                 </Tbody>
