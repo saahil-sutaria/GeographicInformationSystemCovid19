@@ -1,0 +1,17 @@
+
+#main1{
+    padding: 20px;
+    border: 10px solid gray;
+    height: max-content;
+    width: 90%;
+
+}
+#main2{
+    padding: 20px;
+    border: 5px solid green;
+    height: fit-content;
+    width: 90%
+
+}
+
+

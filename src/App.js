@@ -16,12 +16,13 @@ class App extends Component {
     render(){
         return(
                 <div className="App" >
-
                     <br />
-                    <h1 id="displayleft" >Global Corona Cases</h1>
+                    <h1 id="displayleft">Global COVID-19 Statistics</h1>
+                    <br/>
                     <Total />
                     <Country/>
                 </div>
+
 
         );
 

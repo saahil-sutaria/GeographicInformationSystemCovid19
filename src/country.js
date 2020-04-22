@@ -2,8 +2,9 @@ import React, {Component} from 'react';
 import Tab from './sample';
 import './App.css'
 import './App';
-
 import Chart from './CountryCharts';
+
+
 class Country extends Component{
 
     constructor(props) {
@@ -30,8 +31,8 @@ class Country extends Component{
 
 
         if (document.getElementById("search").value===""){
-            console.log("*********")
-            this.setState({value: "Enter in search bar "})
+
+            this.setState({value: alert("Enter in search bar ")})
         }
         else{
 
@@ -60,7 +61,7 @@ class Country extends Component{
                         })
                 } )
                 .catch(err => {
-                    console.log("This is error"+this.state.country);
+                    this.setState({value:alert("Check your entry - Wrong Input")})
                     console.log(err);
                 });
         }
@@ -81,30 +82,27 @@ class Country extends Component{
         if (pressed===false) {
             return (
                 <div>
-
-                    <input type="text"  id="search" ref={this.inputRef} size="40" placeholder="Search"/>
+                    <input type="text"  id="search" ref={this.inputRef} size="40" placeholder="Country, City list coming-soon"/>
                     <button className="button is-info" type="submit" size="40" onClick={() => this.update()}>Search</button>
                     <p>{value}</p>
-
-
-
                 </div>
             )
         }
         else{
             return (
-                <div>
-
-                    <input type="text"  id="search"  ref={this.inputRef} size="40" placeholder="Search"/>
+                <div id="country">
+                    <input type="text"  id="search"  ref={this.inputRef} size="40" placeholder="Country"/>
                     <button className="button is-info" size="40" type="submit" onClick={() => this.update()}>Search</button>
+                    <br/>
+                    <br/>
                     <h1 id="displayleft">Cases in {pass}</h1>
+                    <br/>
                     <Tab total={total} recover={recover} death={death}/>
-                    <p>Statistics Take at :  {recorded} (PDT)</p>
+                    <br/>
+                    <p> -Statistics Take at :  {recorded} (PDT)</p>
 
 
                     <Chart country={pass}/>
-
-
                 </div>
             )
         }

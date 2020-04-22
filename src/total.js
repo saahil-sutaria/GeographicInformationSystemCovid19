@@ -37,7 +37,8 @@ class total extends Component{
         return(
             <div>
                 <Tab total={total} recover={recovered} death={death}/>
-                <p>Statistics Take at : {recorded} (PDT)</p>
+                <br/>
+                <p>-Statistics Take at : {recorded} (PDT)</p>
             </div>
         );
     }

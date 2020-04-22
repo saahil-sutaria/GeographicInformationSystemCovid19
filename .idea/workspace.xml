@@ -2,13 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8de7fcbd-d506-4ac4-8a6a-476f06ca1561" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/CountryDaily.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ChartStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChartStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CountryCharts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/CountryCharts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/country.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/country.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/total.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/total.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="gis19" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -38,6 +49,16 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/gis19/public/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.index.html" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -59,7 +80,8 @@
       <workItem from="1587407822407" duration="929000" />
       <workItem from="1587418251929" duration="6505000" />
       <workItem from="1587446458236" duration="3855000" />
-      <workItem from="1587460461158" duration="888000" />
+      <workItem from="1587460461158" duration="1077000" />
+      <workItem from="1587495502744" duration="13715000" />
     </task>
     <servers />
   </component>
@@ -67,10 +89,58 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587368265168">
+    <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587513924397">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1587368265168" />
+    <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1587513924397" />
+    <state width="1419" height="303" key="GridCell.Tab.0.bottom" timestamp="1587521084449">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="303" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1587521084449" />
+    <state width="1419" height="303" key="GridCell.Tab.0.center" timestamp="1587521084448">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="303" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1587521084448" />
+    <state width="1419" height="303" key="GridCell.Tab.0.left" timestamp="1587521084447">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="303" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1587521084447" />
+    <state width="1419" height="303" key="GridCell.Tab.0.right" timestamp="1587521084448">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="303" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1587521084448" />
+    <state width="1419" height="303" key="GridCell.Tab.1.bottom" timestamp="1587521084451">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="303" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1587521084451" />
+    <state width="1419" height="303" key="GridCell.Tab.1.center" timestamp="1587521084450">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="303" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1587521084450" />
+    <state width="1419" height="303" key="GridCell.Tab.1.left" timestamp="1587521084449">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="303" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1587521084449" />
+    <state width="1419" height="303" key="GridCell.Tab.1.right" timestamp="1587521084450">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="303" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1587521084450" />
+    <state width="1419" height="303" key="GridCell.Tab.2.bottom" timestamp="1587521084452">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="303" key="GridCell.Tab.2.bottom/0.0.1440.900@0.0.1440.900" timestamp="1587521084452" />
+    <state width="1419" height="303" key="GridCell.Tab.2.center" timestamp="1587521084451">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="303" key="GridCell.Tab.2.center/0.0.1440.900@0.0.1440.900" timestamp="1587521084451" />
+    <state width="1419" height="303" key="GridCell.Tab.2.left" timestamp="1587521084451">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="303" key="GridCell.Tab.2.left/0.0.1440.900@0.0.1440.900" timestamp="1587521084451" />
+    <state width="1419" height="303" key="GridCell.Tab.2.right" timestamp="1587521084452">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="303" key="GridCell.Tab.2.right/0.0.1440.900@0.0.1440.900" timestamp="1587521084452" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1587435253185">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
