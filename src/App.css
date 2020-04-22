@@ -4,6 +4,7 @@
   padding-left: 140px;
   padding-right: 140px;
   padding-top: 30px;
+  padding-bottom: 30px;
   margin: auto;
   height: fit-content;
   width: fit-content;
@@ -37,7 +38,7 @@
   white-space: nowrap;
 }
 #displayleft{
-  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   color: #095948;
   font-size: 3rem;
   font-family: ".SF NS Mono";

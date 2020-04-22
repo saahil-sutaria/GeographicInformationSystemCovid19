@@ -25,6 +25,7 @@ class Country extends Component{
         }
         this.inputRef = React.createRef()
         this.handleChange = this.handleChange.bind(this);
+
     }
 
     update=()=>{
@@ -77,14 +78,15 @@ class Country extends Component{
 
 
     render(){
-        const{ totalc1m, totald1m, chart, pass ,value, total, recover, death,pressed,recorded } =  this.state;
+        const{ pass ,value, total, recover, death,pressed,recorded } =  this.state;
 
         if (pressed===false) {
             return (
                 <div>
-                    <input type="text"  id="search" ref={this.inputRef} size="40" placeholder="Country, City list coming-soon"/>
+                    <input type="text"  id="search" ref={this.inputRef} size="30" placeholder="Country, City list coming-soon"/>
                     <button className="button is-info" type="submit" size="40" onClick={() => this.update()}>Search</button>
                     <p>{value}</p>
+
                 </div>
             )
         }
@@ -92,17 +94,43 @@ class Country extends Component{
             return (
                 <div id="country">
                     <input type="text"  id="search"  ref={this.inputRef} size="40" placeholder="Country"/>
-                    <button className="button is-info" size="40" type="submit" onClick={() => this.update()}>Search</button>
+                    <button className="button is-info" size="30" type="submit" onClick={() => this.update()}>Search</button>
                     <br/>
                     <br/>
-                    <h1 id="displayleft">Cases in {pass}</h1>
+                    <h1 id="displayleft" className="text-white bg-dark card-header ">Cases in {pass}</h1>
                     <br/>
                     <Tab total={total} recover={recover} death={death}/>
                     <br/>
                     <p> -Statistics Take at :  {recorded} (PDT)</p>
-
-
                     <Chart country={pass}/>
+                    <footer  className="card-footer bg-dark text-white-50">Sahil Sutaria - Site Under Construction .... <a data-toggle="modal" type="button" className="btn btn-light text-dark" data-target="#exampleModal">Click Here</a></footer>
+
+
+
+                    <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog"
+                         aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div className="modal-dialog" role="document">
+                            <div className="modal-content">
+                                <div className="modal-header">
+                                    <h5 className="modal-title" id="exampleModalLabel">How is this Webpage Built?</h5>
+                                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div className="modal-body bg-dark text-white">
+
+                                    <p>This Website is made using React.js</p>
+                                    <p>Live data is fetched from COVID-19 monitor API v2.</p>
+                                    <p>Chart.js for graphical representation of response data. </p>
+                                    <p>Bootstrap to style components.</p>
+                                    <p>Coming up - Interactive google Maps, graphs and more Styling...</p>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
             )
         }

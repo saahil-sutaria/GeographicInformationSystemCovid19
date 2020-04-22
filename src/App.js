@@ -17,7 +17,7 @@ class App extends Component {
         return(
                 <div className="App" >
                     <br />
-                    <h1 id="displayleft">Global COVID-19 Statistics</h1>
+                    <h1 id="displayleft" className="text-white bg-dark card-header ">Global COVID-19 Statistics</h1>
                     <br/>
                     <Total />
                     <Country/>

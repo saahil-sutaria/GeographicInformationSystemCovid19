@@ -9,7 +9,7 @@ import './ChartStyle.css'
     return(
         <div  id="tab">
 
-            <Table border="1" id="tab2" className="table">
+            <Table border="1" id="tab2" className="table  thead-dark">
                 <Thead>
                     <Tr>
                         <Th>Total Cases</Th>
