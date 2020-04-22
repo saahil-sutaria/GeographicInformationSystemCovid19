@@ -1,9 +1,12 @@
 .App {
   text-align: center;
   border: 2px solid black;
-  padding: 10px;
-  margin: 10px;
+  padding-left: 140px;
+  padding-right: 140px;
+  padding-top: 30px;
+  margin: auto;
   height: fit-content;
+  width: fit-content;
   background-color: cadetblue;
 
 }
