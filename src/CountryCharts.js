@@ -25,19 +25,36 @@ export default function Test(props) {
             "x-rapidapi-key": "ebf8d75e2dmsh37e9046fd3028eep14281ajsn7d548a9e63d1"
         }
     })
-        .then(response => {return (response.json());})
+        .then(response => {
+            console.log(response)
+            return response.json()})
         .then(data => {
-            console.log(data)
-            console.log(data.stat_by_country[0].new_cases.replace(/,/g, ''))
+            console.log((data))
             let myMap = new Map();
             let myMap2 = new Map();
-            for (let i = 0; i < data.stat_by_country.length; i = i + 100) {
+            for (let i = 0; i < data.stat_by_country.length; i = i+100) {
                 const x = data.stat_by_country[i].record_date.split(" ")
-
                 let temp =data.stat_by_country[i].new_cases.replace(/,/g, '');
 
                 if (temp!==""){
-                    myMap2.set(x[0],temp)
+
+                    if (myMap2.has(x[0])){
+                        const val = myMap.get(x[0])
+                        console.log(val)
+                        if (Number(val)>Number(temp)){
+                            if (String(val).length<=4){
+                                if (Math.abs(Number(temp)-Number(val))<2000)
+                                {
+                                    myMap2.set(x[0],val)
+                                }
+
+                            }
+
+                        }
+                    }
+                    else{
+                        myMap2.set(x[0],temp)
+                    }
                     myMap.set(x[0],data.stat_by_country[i].total_cases.replace(/,/g, ''))
                 }
 
@@ -51,40 +68,42 @@ export default function Test(props) {
                     dates2.push(index)
                 }
             })
-
+            console.log(myMap2);
             const myc = document.getElementById("myChart").getContext('2d');
             const myChart = new Chart(myc, {
-
-                height: "50",
                 type: 'line',
-                width: 120,
-
                 options:{
                     responsive: true,
                     maintainAspectRatio: true,
                 },
                 data: {
-                    labels: dates,
+                    labels: dates.reverse(),
+                    backgroundColor: ["#3e95cd"],
                     datasets: [{
                         label: 'Case VS Dates',
-                        data:cases,
+                        borderColor: "#c45850",
+                        data:cases.reverse(),
                     }]
-                }
+                },
+
+
 
             });
             const myc2 = document.getElementById("myChart2").getContext('2d');
             const myChart2= new Chart(myc2, {
                 type: 'bar',
-                height: 1,
                 options:{
                     responsive: true,
                     maintainAspectRatio: true,
+
                 },
                 data: {
-                    labels: dates2,
+                    labels: dates2.reverse(),
                     datasets: [{
                         label: 'Daily Case VS Dates',
-                        data:daily,
+                        borderColor: '#c45850',
+                        borderWidth: 2,
+                        data:daily.reverse(),
                     }]
                 }
 
@@ -96,10 +115,12 @@ export default function Test(props) {
 
     return(
         <div id='main' style={sty}>
-            <canvas id="myChart2" > </canvas>
-            <br/>
-            <br/>
             <canvas id="myChart" > </canvas>
+            <br/>
+            <br/>
+
+
+
         </div>
     )
 }

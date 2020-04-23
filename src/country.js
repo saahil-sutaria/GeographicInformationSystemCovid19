@@ -37,27 +37,24 @@ class Country extends Component{
         }
         else{
 
-            fetch(`https://coronavirus-monitor-v2.p.rapidapi.com/coronavirus/latest_stat_by_country_name.php?country=${document.getElementById("search").value}`, {
+            fetch(`https://coronavirus-monitor.p.rapidapi.com/coronavirus/latest_stat_by_country.php?country=${document.getElementById("search").value}`, {
                 "method": "GET",
                 "headers": {
                     "x-rapidapi-host": "coronavirus-monitor-v2.p.rapidapi.com",
                     "x-rapidapi-key": "ebf8d75e2dmsh37e9046fd3028eep14281ajsn7d548a9e63d1"
                 }
             })
-            .then((response) => {return response.json();})
+            .then((response) => {
+                return response.json()})
                 .then(data => {
-                    console.log("Data"+data)
                     const val = data.latest_stat_by_country[0];
-
                     this.setState({
-                        pass:document.getElementById("search").value,
+                        pass:val.country_name,
                         total: val.total_cases,
                         pressed: true,
                         recover: val.total_recovered,
                         death: val.total_deaths,
                         recorded: val.record_date,
-                        totalc1m:val.total_cases_per1m,
-                        totald1m:val.deaths_per1m,
                         value:""
                         })
                 } )
@@ -83,7 +80,7 @@ class Country extends Component{
         if (pressed===false) {
             return (
                 <div>
-                    <input type="text"  id="search" ref={this.inputRef} size="40" placeholder="Country, City list coming-soon"/>
+                    <input type="text"  id="search" ref={this.inputRef} size="40" placeholder="Search Country"/>
                     <button className="button is-info " type="submit" size="40" onClick={() => this.update()}>Search</button>
                     <p>{value}</p>
 
@@ -93,7 +90,7 @@ class Country extends Component{
         else{
             return (
                 <div id="country">
-                    <input type="text"  id="search"  ref={this.inputRef} size="40" placeholder="Country"/>
+                    <input type="text"  id="search"  ref={this.inputRef} size="40" placeholder="Search Country"/>
                     <button className="button is-info" size="30" type="submit" onClick={() => this.update()}>Search</button>
                     <br/>
                     <br/>
