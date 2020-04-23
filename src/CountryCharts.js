@@ -13,10 +13,10 @@ const sty={
 }
 export default function Test(props) {
 
-    let cases=[];
     let dates=[];
-    let daily=[]
-    let dates2=[];
+    let total_cases=[];
+    let new_cases=[]
+    let total_deaths=[];
     console.log(props.country)
     fetch(`https://coronavirus-monitor-v2.p.rapidapi.com/coronavirus/cases_by_particular_country.php?country=${props.country}`, {
         "method": "GET",
@@ -30,43 +30,29 @@ export default function Test(props) {
             return response.json()})
         .then(data => {
             console.log((data))
+            let new_cases =[];
+            let total_deaths =[];
+            let total_cases =[];
             let myMap = new Map();
             let myMap2 = new Map();
+            let myMap3 = new Map();
             for (let i = 0; i < data.stat_by_country.length; i = i+100) {
                 const x = data.stat_by_country[i].record_date.split(" ")
-                let temp =data.stat_by_country[i].new_cases.replace(/,/g, '');
+                let total =  data.stat_by_country[i].total_cases.replace(/,/g, '');
+                let dth =data.stat_by_country[i].total_deaths.replace(/,/g, '');
+                let newc = data.stat_by_country[i].new_cases.replace(/,/g, '');
+                myMap.set(x[0],total)
+                myMap3.set(x[0],dth)
 
-                if (temp!==""){
-
-                    if (myMap2.has(x[0])){
-                        const val = myMap.get(x[0])
-                        console.log(val)
-                        if (Number(val)>Number(temp)){
-                            if (String(val).length<=4){
-                                if (Math.abs(Number(temp)-Number(val))<2000)
-                                {
-                                    myMap2.set(x[0],val)
-                                }
-
-                            }
-
-                        }
-                    }
-                    else{
-                        myMap2.set(x[0],temp)
-                    }
-                    myMap.set(x[0],data.stat_by_country[i].total_cases.replace(/,/g, ''))
-                }
 
 
             }
             myMap.forEach((key,index)=>{
-                cases.push(key)
                 dates.push(index)
-                if (myMap2.has(index)){
-                    daily.push(myMap2.get(index))
-                    dates2.push(index)
-                }
+                total_cases.push(key)
+                new_cases.push(myMap2.get(index))
+                total_deaths.push(myMap3.get(index))
+
             })
             console.log(myMap2);
             const myc = document.getElementById("myChart").getContext('2d');
@@ -82,15 +68,16 @@ export default function Test(props) {
                     datasets: [{
                         label: 'Case VS Dates',
                         borderColor: "#c45850",
-                        data:cases.reverse(),
+                        data:total_cases.reverse(),
                     }]
                 },
 
 
 
             });
-            const myc2 = document.getElementById("myChart2").getContext('2d');
-            const myChart2= new Chart(myc2, {
+
+            const myc3 = document.getElementById("myChart2").getContext('2d');
+            const myChart3= new Chart(myc3, {
                 type: 'bar',
                 options:{
                     responsive: true,
@@ -98,12 +85,12 @@ export default function Test(props) {
 
                 },
                 data: {
-                    labels: dates2.reverse(),
+                    labels: dates.reverse(),
                     datasets: [{
-                        label: 'Daily Case VS Dates',
+                        label: 'Death VS Dates',
                         borderColor: '#c45850',
                         borderWidth: 2,
-                        data:daily.reverse(),
+                        data:total_deaths.reverse(),
                     }]
                 }
 
@@ -118,6 +105,8 @@ export default function Test(props) {
             <canvas id="myChart" > </canvas>
             <br/>
             <br/>
+
+            <canvas id="myChart2"> </canvas>
 
 
 
