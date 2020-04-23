@@ -17,6 +17,10 @@ export default function Test(props) {
     let total_cases=[];
     let new_cases=[]
     let total_deaths=[];
+    let x = ['orange', 'red', 'black', 'gray', 'yellow', 'blue', 'green','#c45850','#344e4f']
+
+    const rand1 = x[Math.floor(Math.random() * x.length)];
+    const rand2 = x[Math.floor(Math.random() * x.length)];
     console.log(props.country)
     fetch(`https://coronavirus-monitor-v2.p.rapidapi.com/coronavirus/cases_by_particular_country.php?country=${props.country}`, {
         "method": "GET",
@@ -67,7 +71,7 @@ export default function Test(props) {
                     backgroundColor: ["#3e95cd"],
                     datasets: [{
                         label: 'Case VS Dates',
-                        borderColor: "#c45850",
+                        borderColor: rand1,
                         data:total_cases.reverse(),
                     }]
                 },
@@ -88,7 +92,7 @@ export default function Test(props) {
                     labels: dates.reverse(),
                     datasets: [{
                         label: 'Death VS Dates',
-                        borderColor: '#c45850',
+                        borderColor: rand2,
                         borderWidth: 2,
                         data:total_deaths.reverse(),
                     }]
