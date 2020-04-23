@@ -72,7 +72,7 @@ export default function Test(props) {
                     datasets: [{
                         label: 'Case VS Dates',
                         borderColor: rand1,
-                        data:total_cases.reverse(),
+                        data:total_cases,
                     }]
                 },
 
@@ -94,7 +94,7 @@ export default function Test(props) {
                         label: 'Death VS Dates',
                         borderColor: rand2,
                         borderWidth: 2,
-                        data:total_deaths.reverse(),
+                        data:total_deaths,
                     }]
                 }
 
