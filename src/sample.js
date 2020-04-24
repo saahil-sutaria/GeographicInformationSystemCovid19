@@ -5,10 +5,17 @@ import './ChartStyle.css'
 
  function Tabs(props)
 {
+    let total = props.total;
+    let recover = props.recover
+    let death = props.death
+    if (total==="...loading"){
+        total = <i className="fa fa-cog fa-spin" />;
+        recover = <i className="fa fa-cog fa-spin" />;
+        death = <i className="fa fa-cog fa-spin" />;;
+    }
 
     return(
         <div  id="tab">
-
             <Table border="1" id="tab2" className="table  thead-dark">
                 <Thead className="thead-dark">
                     <Tr>
@@ -19,9 +26,9 @@ import './ChartStyle.css'
                 </Thead>
                 <Tbody>
                     <Tr>
-                        <Td scope="row">{props.total}</Td>
-                        <Td scope="row">{props.recover}</Td>
-                        <Td scope="row">{props.death}</Td>
+                        <Td scope="row" id="bold">{total}</Td>
+                        <Td scope="row" id="bold2">{recover}</Td>
+                        <Td scope="row" id="bold3">{death}</Td>
                     </Tr>
 
                 </Tbody>

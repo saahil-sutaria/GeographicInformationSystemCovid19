@@ -5,9 +5,9 @@ class total extends Component{
     constructor(props) {
         super(props);
         this.state ={
-            total: 0,
-            recovered: 0,
-            death: 0,
+            total: "...loading",
+            recovered: "...loading",
+            death: '...loading',
             recorded:"",
         }
     }
@@ -38,7 +38,7 @@ class total extends Component{
             <div>
                 <Tab total={total} recover={recovered} death={death}/>
                 <br/>
-                <p>-Statistics Take at : {recorded} (PDT)</p>
+                <p>-Statistics Take at : {recorded} (GMT+2)</p>
             </div>
         );
     }
