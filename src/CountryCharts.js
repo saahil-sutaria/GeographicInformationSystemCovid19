@@ -25,7 +25,8 @@ export default function Test(props) {
 
     const rand1 = x[Math.floor(Math.random() * x.length)];
     const rand2 = x[Math.floor(Math.random() * x.length)];
-    console.log(props.country)
+
+
     fetch(`https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_particular_country.php?country=${props.country}`, {
         "method": "GET",
         "headers": {
@@ -34,11 +35,11 @@ export default function Test(props) {
         }
     })
         .then(response => {
-            console.log(response)
+
             return response.json()})
         .then(data => {
             country_name = data.stat_by_country[0].country_name;
-            console.log((data))
+            console.log("Data",(data))
             let myMap = new Map();
             let myMap2 = new Map();
             let myMap3 = new Map();
@@ -46,50 +47,42 @@ export default function Test(props) {
                 const x = data.stat_by_country[i].record_date.split(" ")
                 let total =  data.stat_by_country[i].total_cases.replace(/,/g, '');
                 let dth =data.stat_by_country[i].total_deaths.replace(/,/g, '');
-                let newc = data.stat_by_country[i].new_cases.replace(/,/g, '');
+
                 myMap.set(x[0],total)
                 myMap3.set(x[0],dth)
-
-
             }
             let val=0;
-
+            let f=0
             myMap.forEach((key,index)=>{
                 dates.push(index)
                 total_cases.push(key)
-                new_cases.push(myMap2.get(index))
+                if (f===0){
+                    f=myMap3.get(index)
+                }
+                else{
+                    new_deaths.push(f-myMap3.get(index))
+                    f=myMap3.get(index)
+                }
                 total_deaths.push(myMap3.get(index))
 
-
             })
-            let dates2=[]
-            for (let i in total_deaths){
-                if (i!=0){
-                    if(total_deaths[i]-total_deaths[i-1]>0){
-                        new_deaths.push(total_deaths[i]-total_deaths[i-1])
-                        dates2.push(dates[i])
-                    }
-                }
+            console.log(new_deaths)
 
-            }
-            function getSum(total, num) {
-                return total + Math.round(num);
-            }
-            console.log(new_deaths.reduce(getSum, 0))
             const myc = document.getElementById("myChart").getContext('2d');
-            const myChart = new Chart(myc, {
+             const myChart = new Chart(myc, {
                 type: 'line',
                 options:{
                     responsive: true,
                     maintainAspectRatio: true,
+                    events: ['mousemove'],
                 },
                 data: {
-                    labels: dates,
+                    labels: dates.reverse(),
                     backgroundColor: ["#3e95cd"],
                     datasets: [{
                         label: `Case VS Dates in ${country_name}`,
                         borderColor: rand1,
-                        data:total_cases,
+                        data:total_cases.reverse(),
                     }]
                 },
 
@@ -111,7 +104,7 @@ export default function Test(props) {
                         label: `Death VS Dates in ${country_name}`,
                         borderColor: rand2,
                         borderWidth: 2,
-                        data:total_deaths,
+                        data:total_deaths.reverse(),
                     }]
                 }
 
@@ -126,7 +119,7 @@ export default function Test(props) {
 
                 },
                 data: {
-                    labels: dates2,
+                    labels: dates.reverse(),
                     datasets: [{
                         label: `Daily Death in ${country_name}`,
                         borderColor: rand2,
@@ -162,27 +155,19 @@ export default function Test(props) {
                     Total Deaths - linear comparision
                 </div>
                 <div className="card-body">
-                    <h5 className="card-title"> <canvas id="myChart2"> </canvas></h5>
+                    <h5 className="card-title"> <canvas width="200" height="100" id="myChart2"> </canvas></h5>
 
                 </div>
                 <div className="card-footer text-muted">
                 </div>
             </div>
-            <br/>
-            <br/>
-            <div className="card text-lg-left ">
-                <div className="card-header bg-dark text-white">
-                    Daily Deaths - linear comparison
-                </div>
-                <div className="card-body">
-                    <h5 className="card-title">  <canvas id="myChart4"> </canvas></h5>
 
-                </div>
-                <div className="card-footer text-muted">
-                </div>
-            </div>
+            <br/>
+            <br/>
+
 
 
         </div>
     )
 }
+

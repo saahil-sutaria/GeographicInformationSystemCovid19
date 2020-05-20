@@ -3,6 +3,7 @@ import Tab from './sample';
 import './App.css'
 import './App';
 import Chart from './CountryCharts';
+import ParticlesBg from "particles-bg";
 
 
 class Country extends Component{
@@ -22,6 +23,7 @@ class Country extends Component{
             totald1m: 0,
             charts:"...Loading",
             loader:"",
+            showStates:false
         }
         this.inputRef = React.createRef()
         this.handleChange = this.handleChange.bind(this);
@@ -72,22 +74,26 @@ class Country extends Component{
     }
 
     render(){
-        const{ loader, pass ,value, total, recover, death,pressed,recorded } =  this.state;
+        const{showStates, loader, pass ,value, total, recover, death,pressed,recorded } =  this.state;
         if (pressed===false) {
             return (
                 <div>
                     <input type="text"  id="search" ref={this.inputRef} size="40" placeholder="Search Country"/>
-                    <button className="button is-info " type="submit" size="40" onClick={() => this.update()}>Search</button>
+                    <button className="button is-info " type="submit" size="35" onClick={() => this.update()}>Search</button>
                     <p>{value}</p>
                     <p>{loader}</p>
+                    <a>{showStates}</a>
                 </div>
             )
         }
         else{
             return (
-                <div id="country">
-                    <input type="text"  id="search"  ref={this.inputRef} size="40" placeholder="Search Country"/>
-                    <button className="button is-info" size="30" type="submit" onClick={() => this.update()}>Search</button>
+                <div className="country">
+
+                    <input type="text"  aria-label="Search" id="search"  ref={this.inputRef} size="40" placeholder="Search Country"/>
+                    <br/>
+                    <br/>
+                    <button className="button is-info" size="35" type="submit" onClick={() => this.update()}>Search</button>
                     <br/>
                     <br/>
                     <p>{loader}</p>
@@ -122,6 +128,7 @@ class Country extends Component{
                             </div>
                         </div>
                     </div>
+
                 </div>
             )
         }
